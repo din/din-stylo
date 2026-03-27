@@ -398,7 +398,6 @@ spec = "https://drafts.fxtf.org/css-masking/#propdef-mask"
 extra_prefixes = ["webkit"]
 
 [mask-position]
-engine = "gecko"
 sub_properties = ["mask-position-x", "mask-position-y"]
 spec = "https://drafts.csswg.org/css-masks-4/#the-mask-position"
 extra_prefixes = ["webkit"]

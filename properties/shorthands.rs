@@ -3858,7 +3858,6 @@ pub mod mask {
     }
 }
 
-#[cfg(feature = "gecko")]
 pub mod mask_position {
     pub use crate::properties::generated::shorthands::mask_position::*;
 
