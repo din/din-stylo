@@ -3577,7 +3577,6 @@ pub mod animation {
     }
 }
 
-#[cfg(feature = "gecko")]
 pub mod mask {
     pub use crate::properties::generated::shorthands::mask::*;
 
@@ -3604,12 +3603,15 @@ pub mod mask {
                 mask_origin::single_value::SpecifiedValue::BorderBox => {
                     mask_clip::single_value::SpecifiedValue::BorderBox
                 },
+                #[cfg(feature = "gecko")]
                 mask_origin::single_value::SpecifiedValue::FillBox => {
                     mask_clip::single_value::SpecifiedValue::FillBox
                 },
+                #[cfg(feature = "gecko")]
                 mask_origin::single_value::SpecifiedValue::StrokeBox => {
                     mask_clip::single_value::SpecifiedValue::StrokeBox
                 },
+                #[cfg(feature = "gecko")]
                 mask_origin::single_value::SpecifiedValue::ViewBox => {
                     mask_clip::single_value::SpecifiedValue::ViewBox
                 },
@@ -3747,7 +3749,11 @@ pub mod mask {
             use crate::properties::longhands::mask_origin::single_value::computed_value::T as Origin;
             use style_traits::values::SequenceWriter;
 
-            let len = self.mask_image.0.len();
+            #[cfg(feature = "gecko")]
+            let mask_image_ref = &self.mask_image;
+            #[cfg(not(feature = "gecko"))]
+            let Some(mask_image_ref) = &self.mask_image else { return Ok(()) };
+            let len = mask_image_ref.0.len();
             if len == 0 {
                 return Ok(());
             }
@@ -3781,7 +3787,7 @@ pub mod mask {
                     dest.write_str(", ")?;
                 }
 
-                let image = &self.mask_image.0[i];
+                let image = &mask_image_ref.0[i];
                 let mode = &self.mask_mode.0[i];
                 let position_x = &self.mask_position_x.0[i];
                 let position_y = &self.mask_position_y.0[i];
@@ -3836,7 +3842,11 @@ pub mod mask {
                     writer.item(repeat)?;
                 }
 
-                if has_origin || (has_clip && *clip != Clip::NoClip) {
+                #[cfg(feature = "gecko")]
+                let clip_is_no_clip = *clip == Clip::NoClip;
+                #[cfg(not(feature = "gecko"))]
+                let clip_is_no_clip = false;
+                if has_origin || (has_clip && !clip_is_no_clip) {
                     writer.item(origin)?;
                 }
 
@@ -3858,7 +3868,6 @@ pub mod mask {
     }
 }
 
-#[cfg(feature = "gecko")]
 pub mod mask_position {
     pub use crate::properties::generated::shorthands::mask_position::*;
 

@@ -2421,7 +2421,6 @@ affects = "paint"
 type = "position::HorizontalPosition"
 initial = "computed::LengthPercentage::zero_percent()"
 struct = "svg"
-engine = "gecko"
 extra_prefixes = ["webkit"]
 initial_specified_value = "specified::PositionComponent::Center"
 spec = "https://drafts.fxtf.org/css-masking-1/#propdef-mask-position"
@@ -2432,7 +2431,6 @@ affects = "paint"
 type = "position::VerticalPosition"
 initial = "computed::LengthPercentage::zero_percent()"
 struct = "svg"
-engine = "gecko"
 extra_prefixes = ["webkit"]
 initial_specified_value = "specified::PositionComponent::Center"
 spec = "https://drafts.fxtf.org/css-masking-1/#propdef-mask-position"
@@ -2443,7 +2441,6 @@ affects = "paint"
 type = "BackgroundRepeat"
 initial = "computed::BackgroundRepeat::repeat()"
 struct = "svg"
-engine = "gecko"
 initial_specified_value = "specified::BackgroundRepeat::repeat()"
 extra_prefixes = ["webkit"]
 animation_type = "discrete"
@@ -2455,7 +2452,6 @@ affects = "paint"
 type = "background::BackgroundSize"
 initial = "computed::BackgroundSize::auto()"
 struct = "svg"
-engine = "gecko"
 initial_specified_value = "specified::BackgroundSize::auto()"
 extra_prefixes = ["webkit"]
 spec = "https://drafts.fxtf.org/css-masking-1/#propdef-mask-size"
@@ -4022,7 +4018,6 @@ keyword = { values = ["luminance", "alpha"] }
 
 [mask-mode]
 struct = "svg"
-engine = "gecko"
 spec = "https://drafts.fxtf.org/css-masking-1/#propdef-mask-mode"
 animation_type = "discrete"
 affects = "paint"
@@ -4031,7 +4026,6 @@ keyword = { values = ["match-source", "alpha", "luminance"] }
 
 [mask-clip]
 struct = "svg"
-engine = "gecko"
 spec = "https://drafts.fxtf.org/css-masking-1/#propdef-mask-clip"
 animation_type = "discrete"
 affects = "paint"
@@ -4041,7 +4035,6 @@ keyword = { values = ["border-box", "content-box", "padding-box"], extra_gecko_v
 
 [mask-origin]
 struct = "svg"
-engine = "gecko"
 spec = "https://drafts.fxtf.org/css-masking-1/#propdef-mask-origin"
 animation_type = "discrete"
 affects = "paint"
@@ -4051,7 +4044,6 @@ keyword = { values = ["border-box", "content-box", "padding-box"], extra_gecko_v
 
 [mask-composite]
 struct = "svg"
-engine = "gecko"
 spec = "https://drafts.fxtf.org/css-masking-1/#propdef-mask-composite"
 animation_type = "discrete"
 affects = "paint"
