@@ -2555,10 +2555,10 @@ affects = "layout"
 type = "Color"
 initial = "computed_value::T::currentcolor()"
 struct = "inherited_text"
-engine = "gecko"
 ignored_when_colors_disabled = true
 spec = "https://compat.spec.whatwg.org/#the-webkit-text-fill-color"
 affects = "paint"
+servo_restyle_damage = "repaint"
 
 [-webkit-text-stroke-color]
 type = "Color"
