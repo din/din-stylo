@@ -356,7 +356,7 @@ pub struct Animation {
     pub name: Atom,
 
     /// The properties that change in this animation.
-    properties_changed: PropertyDeclarationIdSet,
+    pub properties_changed: PropertyDeclarationIdSet,
 
     /// The computed style for each keyframe of this animation.
     computed_steps: Box<[ComputedKeyframe]>,
