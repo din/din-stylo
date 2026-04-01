@@ -39,13 +39,13 @@ use std::fmt;
 #[derive(Clone, Debug, MallocSizeOf)]
 pub struct PropertyAnimation {
     /// The value we are animating from.
-    from: AnimationValue,
+    pub from: AnimationValue,
 
     /// The value we are animating to.
-    to: AnimationValue,
+    pub to: AnimationValue,
 
     /// The timing function of this `PropertyAnimation`.
-    timing_function: TimingFunction,
+    pub timing_function: TimingFunction,
 
     /// The duration of this `PropertyAnimation` in seconds.
     pub duration: f64,
@@ -256,18 +256,18 @@ impl IntermediateComputedKeyframe {
 
 /// A single computed keyframe for a CSS Animation.
 #[derive(Clone, MallocSizeOf)]
-struct ComputedKeyframe {
+pub struct ComputedKeyframe {
     /// The timing function to use for transitions between this step
     /// and the next one.
-    timing_function: TimingFunction,
+    pub timing_function: TimingFunction,
 
     /// The starting percentage (a number between 0 and 1) which represents
     /// at what point in an animation iteration this step is.
-    start_percentage: f32,
+    pub start_percentage: f32,
 
     /// The animation values to transition to and from when processing this
     /// keyframe animation step.
-    values: Box<[AnimationValue]>,
+    pub values: Box<[AnimationValue]>,
 }
 
 impl ComputedKeyframe {
@@ -359,7 +359,7 @@ pub struct Animation {
     pub properties_changed: PropertyDeclarationIdSet,
 
     /// The computed style for each keyframe of this animation.
-    computed_steps: Box<[ComputedKeyframe]>,
+    pub computed_steps: Box<[ComputedKeyframe]>,
 
     /// The time this animation started at, which is the current value of the animation
     /// timeline when this animation was created plus any animation delay.
